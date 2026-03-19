@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 
-function SearchBox({updateInfo}) {
+function SearchBox({ updateInfo }) {
   let [city, setCity] = useState("");
   let [error, setError] = useState("");
 
   const API_URL = "https://api.openweathermap.org/data/2.5/weather";
   const API_KEY = "eb94b40fb313ce74aefe7c2f2be53afa";
 
-
   let getWeatherInfo = async () => {
-    try{
-
+    try {
       let response = await fetch(
         `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`,
       );
@@ -28,8 +26,9 @@ function SearchBox({updateInfo}) {
       };
       console.log(result);
       return result;
-    }catch (error){
+    } catch (error) {
       setError("No such place found");
+      throw error
     }
   };
 
@@ -37,16 +36,15 @@ function SearchBox({updateInfo}) {
     setCity(e.target.value);
   };
 
-  let handleSubmit = async(e) => {
+  let handleSubmit = async (e) => {
     try {
-      
       e.preventDefault();
       console.log(city);
       setCity("");
       let newInfo = await getWeatherInfo();
-      updateInfo(newInfo)
+      updateInfo(newInfo);
     } catch (error) {
-      setError("No such place found in our database")
+      setError("No such place found in our database");
     }
   };
 
@@ -54,11 +52,12 @@ function SearchBox({updateInfo}) {
     <>
       <div className="relative font-semibold text-lg sm:text-xl flex flex-col justify-center items-center p-4 sm:py-5 border rounded-2xl border-gray-700 w-full">
         <h3 className="pb-3">Search for the weather</h3>
-        <form noValidate
+        <form
           onSubmit={handleSubmit}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
         >
-          <input required
+          <input
+            required
             className="bg-black text-white text-base border p-2 rounded-lg  placeholder:px-2 placeholder:font-normal w-full sm:w-auto"
             placeholder="Enter city"
             onChange={handleChange}
@@ -73,8 +72,8 @@ function SearchBox({updateInfo}) {
           >
             Search
           </button>
+          {error && <p className="text-red-600 font-extralight font-serif">No such place found ! </p>}
         </form>
-        {error && <p>No such place found</p>}
       </div>
     </>
   );
