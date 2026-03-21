@@ -1,18 +1,18 @@
 import React from "react";
 
 function InfoBox({ info }) {
-  const WEATHER_VIDEO_URL = "/weather_video.mp4";
+  const WEATHER_VIDEO_URL = "https://www.pexels.com/download/video/29693156/";
 
   const INIT_URL =
     "https://images.unsplash.com/photo-1601134467661-3d775b999c8b?q=80&w=1075&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
-    const CLOUDY_URL = "/cloudy_video.mp4"
+    const CLOUDY_URL = "https://www.pexels.com/download/video/33847367/"
 
-  let COLD_URL = "/cold_video.mp4";
+  let COLD_URL = "https://www.pexels.com/download/video/36286233/";
 
-  let HOT_URL = "/hot_video.mp4";
+  let HOT_URL = "https://www.pexels.com/download/video/6980396/";
 
-  let RAIN_URL = "/rain_video.mp4";
+  let RAIN_URL = "https://www.pexels.com/download/video/32601707/";
 
   const getWeatherMedia = (info) => {
     if (!info || !info.weather)
