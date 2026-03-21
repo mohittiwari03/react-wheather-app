@@ -50,7 +50,10 @@ function SearchBox({ updateInfo }) {
 
   return (
     <>
-      <div className="relative font-semibold text-lg sm:text-xl flex flex-col justify-center items-center p-4 sm:py-5 border rounded-2xl border-gray-700 w-full">
+      <div className="relative font-semibold text-lg sm:text-xl flex flex-col justify-center items-center p-4 sm:py-5 border-2 rounded-2xl border-gray-900 w-full
+      
+    backdrop-blur-xs shadow-xl
+      ">
         <h3 className="pb-3">Search for the weather</h3>
         <form
           onSubmit={handleSubmit}
@@ -58,7 +61,7 @@ function SearchBox({ updateInfo }) {
         >
           <input
             required
-            className="bg-black text-white text-base border p-2 rounded-lg  placeholder:px-2 placeholder:font-normal w-full sm:w-auto"
+            className=" text-white text-base border p-2 rounded-lg  placeholder:px-2 placeholder:font-normal w-full sm:w-auto"
             placeholder="Enter city"
             onChange={handleChange}
             id="City"
