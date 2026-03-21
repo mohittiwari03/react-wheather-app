@@ -10,7 +10,7 @@ function WeatherApp() {
     tempMin: "-",
     tempMax: "-",
     humidity: "-",
-    weather: "-",
+    weather: null,
   });
 
   let updateInfo = (newInfo) => {
@@ -18,7 +18,8 @@ function WeatherApp() {
   } 
 
   return (
-    <div className="w-full max-w-3xl">
+    <div className="w-full max-w-3xl 
+    ">
       <SearchBox updateInfo={updateInfo}/>
       <InfoBox info={weatherInfo} />
     </div>
